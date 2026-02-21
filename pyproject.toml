@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "logs-library"
+name = "logs_library_json"
 version = "0.1.0"
 description = "Decorators reutilizáveis para logging"
 authors = [{name="Guilherme Vilela Moreira", email="guilherme.v.moreira@outlook.com"}]
