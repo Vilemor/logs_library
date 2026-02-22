@@ -2,7 +2,7 @@ import logging
 import json
 import sys
 from pytest_cases import parametrize_with_cases
-try:   
+try:
     from logs_library.formatter import JsonLogFormatter
 except ImportError:
     from .logs_library.formatter import JsonLogFormatter
