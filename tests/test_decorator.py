@@ -2,6 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from logs_library.decorator import log_json
 
+
 # Caso 1: Mensagem customizada
 def case_custom_message():
     return {
@@ -10,6 +11,7 @@ def case_custom_message():
         "b": 3,
         "expected_msg": "Minha mensagem customizada"
     }
+
 
 # Caso 2: Mensagem padrão
 def case_default_message():
@@ -20,6 +22,7 @@ def case_default_message():
         "expected_msg": "Chamada da função soma"
     }
 
+
 # Caso 3: Exceção na função
 def case_exception():
     return {
@@ -28,6 +31,7 @@ def case_exception():
         "b": 0,
         "raises": ZeroDivisionError
     }
+
 
 @pytest.mark.parametrize(
     "case_func",
@@ -63,6 +67,7 @@ def test_log_json_success(case_func):
             "Retorno da função soma",
             extra={"retorno": a + b}
         )
+
 
 @pytest.mark.parametrize("case_func", [case_exception])
 def test_log_json_exception(case_func):

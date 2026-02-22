@@ -40,4 +40,3 @@ def test_configurar_logger_nao_adiciona_handler_se_ja_existir():
 
     assert len(logger.handlers) == 1
     assert logger.handlers[0] is fake_handler
-
