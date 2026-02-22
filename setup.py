@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="library_utils",
-    version="0.1.0",
+    version="1.0.0",
     author="Guilherme Vilela Moreira",
     description="Decorator utilitário para reutilização de código em bibliotecas",
     packages=find_packages(),
