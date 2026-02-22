@@ -7,7 +7,7 @@ def log_json(
     nome_logger: str = "json_logger"
 ) -> callable:
     """
-    Decorator para logar entrada, 
+    Decorator para logar entrada,
     saída e exceções de funções em JSON.
     Permite mensagem customizada.
     """
