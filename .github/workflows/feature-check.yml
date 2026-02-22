@@ -87,6 +87,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: develop
+          branch: ${{ github.ref_name }}
           title: "Automated PR from ${{ github.ref_name }}"
           body: |
             ## :rocket: Workflow Summary
@@ -97,10 +98,10 @@ jobs:
 
             ### Quality Gates Executed
 
-            | Gate                | Status  |
-            |---------------------|---------|
-            | Lint (flake8)       | ✅ Passed |
-            | Unit tests (pytest) | ✅ Passed |
+            | Gate                | Status     |
+            |---------------------|------------|
+            | Lint (flake8)       | ✅ Passed  |
+            | Unit tests (pytest) | ✅ Passed  |
 
             ---
             _This PR was automatically created by GitHub Actions after passing all quality gates._
