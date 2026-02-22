@@ -44,7 +44,9 @@ def test_log_json_success(case_func):
     b = params["b"]
     expected_msg = params["expected_msg"]
 
-    with patch("logs_library.decorator.configurar_logger") as mock_config_logger:
+    with patch(
+        "logs_library.decorator.configurar_logger"
+    ) as mock_config_logger:
         mock_logger = MagicMock()
         mock_config_logger.return_value = mock_logger
 
@@ -76,7 +78,9 @@ def test_log_json_exception(case_func):
     a = params["a"]
     b = params["b"]
 
-    with patch("logs_library.decorator.configurar_logger") as mock_config_logger:
+    with patch(
+        "logs_library.decorator.configurar_logger"
+    ) as mock_config_logger:
         mock_logger = MagicMock()
         mock_config_logger.return_value = mock_logger
 
