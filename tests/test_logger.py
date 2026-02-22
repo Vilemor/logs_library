@@ -1,6 +1,9 @@
 import logging
 from unittest.mock import patch, MagicMock
-from logs_library.logger import configurar_logger
+try:
+    from logs_library.logger import configurar_logger
+except ImportError:
+    from .logs_library.logger import configurar_logger
 
 
 def test_configurar_logger_adiciona_handler_e_formatter():

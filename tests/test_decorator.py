@@ -1,6 +1,9 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from logs_library.decorator import log_json
+try:
+    from logs_library.decorator import log_json
+except ImportError:
+    from .logs_library.decorator import log_json
 
 
 # Caso 1: Mensagem customizada
