@@ -12,20 +12,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install flake8
         run: |
           python -m pip install --upgrade pip
           pip install flake8
-
       - name: Run flake8 (PEP8)
         run: flake8 .
-        continue-on-error: false
 
   check-tests-exist:
     name: Check for Unit Tests
@@ -36,7 +32,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Check for unit tests
         id: check
         run: |
@@ -82,10 +77,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set PR token (GH_PAT or fallback to GITHUB_TOKEN)
+        id: set-token
+        run: |
+          if [ -n "${{ secrets.GH_PAT }}" ]; then
+            echo "TOKEN=${{ secrets.GH_PAT }}" >> $GITHUB_ENV
+          else
+            echo "TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+          fi
+
       - name: Create Pull Request to develop
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ env.TOKEN }}
           base: develop
           branch: ${{ github.ref_name }}
           title: "Automated PR from ${{ github.ref_name }}"
