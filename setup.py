@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="logs_library",
-    version="1.0.0",
+    version="2.0.0",
     author="Guilherme Vilela Moreira",
     description="Decorator utilitário para reutilização de código em bibliotecas",
     packages=find_packages(),
