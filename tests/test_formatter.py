@@ -5,7 +5,6 @@ from pytest_cases import parametrize_with_cases
 from logs_library.formatter import JsonLogFormatter
 
 
-
 def case_info_log():
     record = logging.LogRecord(
         name="test_logger",
