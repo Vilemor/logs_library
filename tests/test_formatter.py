@@ -17,6 +17,7 @@ def case_info_log():
     )
     return record, "Mensagem de info", "INFO"
 
+
 def case_warning_log():
     record = logging.LogRecord(
         name="test_logger",
@@ -28,6 +29,7 @@ def case_warning_log():
         exc_info=None
     )
     return record, "Mensagem de warning", "WARNING"
+
 
 def case_extra_fields():
     record = logging.LogRecord(
@@ -41,6 +43,7 @@ def case_extra_fields():
     )
     record.custom_field = "valor_extra"
     return record, "Com extra", "INFO"
+
 
 def case_exception_log():
     try:
@@ -58,7 +61,6 @@ def case_exception_log():
     )
     return record, "Erro ocorreu", "ERROR"
 
-# --- Teste usando parametrize_with_cases ---
 
 @parametrize_with_cases("record,expected_msg,expected_level", cases=".")
 def test_json_log_formatter(record, expected_msg, expected_level):

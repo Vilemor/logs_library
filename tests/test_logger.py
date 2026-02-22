@@ -34,9 +34,10 @@ def test_configurar_logger_nao_adiciona_handler_se_ja_existir():
     fake_handler = MagicMock()
     logger.addHandler(fake_handler)
 
-    with patch("logs_library.logger.JsonLogFormatter") as mock_formatter_cls, \
-         patch("logging.StreamHandler") as mock_stream_handler_cls:
-        result_logger = configurar_logger(nome_logger)
+    with patch("logs_library.logger.JsonLogFormatter"), \
+         patch("logging.StreamHandler"):
+        configurar_logger(nome_logger)
 
     assert len(logger.handlers) == 1
     assert logger.handlers[0] is fake_handler
+
